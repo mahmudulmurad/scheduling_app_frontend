@@ -9,6 +9,7 @@ import Signup from "../pages/signup";
 import Profile from "../pages/profile";
 import { AuthProvider } from "context";
 import Employee from "pages/employee";
+import Shift from "pages/shift";
 
 const AppRoutes: React.FC = () => {
   const routes = [
@@ -46,6 +47,15 @@ const AppRoutes: React.FC = () => {
       element: (
         <AuthProvider>
           <ProtectedRoute element={<Employee />} />
+        </AuthProvider>
+      ),
+      caseSensitive: true,
+    },
+    {
+      path: "/shift",
+      element: (
+        <AuthProvider>
+          <ProtectedRoute element={<Shift />} />
         </AuthProvider>
       ),
       caseSensitive: true,

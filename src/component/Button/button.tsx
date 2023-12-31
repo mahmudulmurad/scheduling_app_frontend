@@ -4,8 +4,8 @@ import { Button } from "antd";
 
 export interface IUiButtonProps {
   id?: string;
-  title: React.ReactNode;
-  type: TType;
+  title?: React.ReactNode;
+  type?: TType;
   size?: TSize;
   shape?: TShape;
   disabled?: boolean;

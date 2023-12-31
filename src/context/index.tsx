@@ -6,7 +6,7 @@ import React, {
   useEffect,
   ReactNode,
 } from "react";
-import { makeApiRequest } from "service";
+import { getRequest } from "service";
 import { profile_url } from "api";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -19,6 +19,7 @@ export interface User {
   gender: string;
   role: string;
   isActive: string;
+  myEmployees: User[];
 }
 
 export const defaulUser: User = {
@@ -29,6 +30,7 @@ export const defaulUser: User = {
   name: "",
   phone: "",
   role: "",
+  myEmployees: [],
 };
 
 interface AuthContextValue {
@@ -36,6 +38,7 @@ interface AuthContextValue {
   user: User;
   logout: () => void;
   setUser: React.Dispatch<React.SetStateAction<User>>;
+  refetchProfile: () => void;
 }
 
 type AuthProviderProps = {
@@ -47,6 +50,7 @@ const AuthContext = createContext<AuthContextValue>({
   user: defaulUser,
   logout: () => {},
   setUser: () => {},
+  refetchProfile: () => {},
 });
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
@@ -59,7 +63,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     const fetchProfile = async () => {
       try {
         if (token) {
-          const response = await makeApiRequest<User>("get", profile_url);
+          const response = await getRequest<User>(profile_url);
           setUser(response.payload);
         }
       } catch (error) {
@@ -71,6 +75,16 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
     fetchProfile();
   }, [token]);
+
+  const refetchProfile = async () => {
+    try {
+      const response = await getRequest<User>(profile_url);
+      setUser(response.payload);
+      toast.success("Profile successfully refetched");
+    } catch (error) {
+      toast.error("Error refetching profile");
+    }
+  };
 
   const logout = () => {
     setToken(null);
@@ -85,7 +99,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   }
 
   return (
-    <AuthContext.Provider value={{ token, user, logout, setUser }}>
+    <AuthContext.Provider
+      value={{ token, user, logout, setUser, refetchProfile }}
+    >
       {children}
     </AuthContext.Provider>
   );

@@ -39,7 +39,7 @@ const Sidebar = () => {
               <StyledLink to="/">Home</StyledLink>
             </StyledMenuItem>
             <StyledMenuItem key="2" icon={<TeamOutlined />}>
-              <StyledLink to="/my-employees">My Employees</StyledLink>
+              <StyledLink to="/employees">Employee List</StyledLink>
             </StyledMenuItem>
             <StyledMenuItem key="3" icon={<TeamOutlined />}>
               <StyledLink to="/shift">Shift</StyledLink>

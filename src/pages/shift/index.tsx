@@ -1,18 +1,18 @@
 import AppLayout from "layout";
 import styled from "styled-components";
-import EmployeeList from "ui/employee";
+import ShiftComponent from "ui/shift";
 
-const Employee = () => {
+const Shift = () => {
   return (
     <AppLayout>
       <StyledProfile>
-        <EmployeeList />
+        <ShiftComponent />
       </StyledProfile>
     </AppLayout>
   );
 };
 
-export default Employee;
+export default Shift;
 
 const StyledProfile = styled("div")`
   width: calc(100% - 240px);
