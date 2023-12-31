@@ -1,24 +1,78 @@
 import { Menu } from "antd";
 import { Link } from "react-router-dom";
-import { TeamOutlined, UserAddOutlined, UserOutlined } from "@ant-design/icons";
+import { TeamOutlined, UserAddOutlined } from "@ant-design/icons";
 import styled from "styled-components";
+import { useAuth } from "context";
 
 const Sidebar = () => {
+  const { user } = useAuth();
+
+  const getRoleSpecificItems = () => {
+    const role = user?.role;
+
+    switch (role) {
+      case "ADMINISTRATOR":
+        return (
+          <>
+            <StyledMenuItem key="1" icon={<TeamOutlined />}>
+              <StyledLink to="/">Home</StyledLink>
+            </StyledMenuItem>
+            <StyledMenuItem key="2" icon={<TeamOutlined />}>
+              <StyledLink to="/role-change">Role Change</StyledLink>
+            </StyledMenuItem>
+            <StyledMenuItem key="3" icon={<UserAddOutlined />}>
+              <StyledLink to="/employees">Employee List</StyledLink>
+            </StyledMenuItem>
+            <StyledMenuItem key="4" icon={<TeamOutlined />}>
+              <StyledLink to="/shift">Shift</StyledLink>
+            </StyledMenuItem>
+            <StyledMenuItem key="5" icon={<TeamOutlined />}>
+              <StyledLink to="/schedule">Schedule</StyledLink>
+            </StyledMenuItem>
+          </>
+        );
+
+      case "SUPERVISOR":
+        return (
+          <>
+            <StyledMenuItem key="1" icon={<TeamOutlined />}>
+              <StyledLink to="/">Home</StyledLink>
+            </StyledMenuItem>
+            <StyledMenuItem key="2" icon={<TeamOutlined />}>
+              <StyledLink to="/my-employees">My Employees</StyledLink>
+            </StyledMenuItem>
+            <StyledMenuItem key="3" icon={<TeamOutlined />}>
+              <StyledLink to="/shift">Shift</StyledLink>
+            </StyledMenuItem>
+            <StyledMenuItem key="4" icon={<TeamOutlined />}>
+              <StyledLink to="/schedule">Schedule</StyledLink>
+            </StyledMenuItem>
+          </>
+        );
+
+      case "EMPLOYEE":
+        return (
+          <>
+            <StyledMenuItem key="1" icon={<TeamOutlined />}>
+              <StyledLink to="/">Home</StyledLink>
+            </StyledMenuItem>
+            <StyledMenuItem key="2" icon={<TeamOutlined />}>
+              <StyledLink to="/schedule">Schedule</StyledLink>
+            </StyledMenuItem>
+          </>
+        );
+
+      default:
+        return null;
+    }
+  };
+
   return (
     <StyledMenu theme="dark" mode="vertical" defaultSelectedKeys={["1"]}>
-      <StyledMenuItem key="1" icon={<TeamOutlined />}>
-        <StyledLink to="/">Home</StyledLink>
-      </StyledMenuItem>
-      <StyledMenuItem key="2" icon={<UserAddOutlined />}>
-        <StyledLink to="/employees">Employees</StyledLink>
-      </StyledMenuItem>
-      <StyledMenuItem key="3" icon={<UserOutlined />}>
-        <StyledLink to="/shift">Shift List</StyledLink>
-      </StyledMenuItem>
+      {getRoleSpecificItems()}
     </StyledMenu>
   );
 };
-
 export default Sidebar;
 
 const StyledMenu = styled(Menu)`

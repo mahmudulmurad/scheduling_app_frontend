@@ -1,13 +1,15 @@
-import { AuthProvider } from "context";
+import { useAuth } from "context";
 import React from "react";
-import { PathRouteProps } from "react-router-dom";
+import { PathRouteProps, Navigate } from "react-router-dom";
 
 interface ProtectedRouteProps extends PathRouteProps {
   element: React.ReactNode;
 }
 
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ element }) => {
-  return <AuthProvider>{element}</AuthProvider>;
+  const { user } = useAuth();
+
+  return user?.email ? <>{element}</> : <Navigate to="/auth/login" replace />;
 };
 
 export default ProtectedRoute;

@@ -1,11 +1,9 @@
 import AppLayout from "layout";
-import { Toast } from "component/Toast";
 import ProfileUI from "ui/profile";
 import styled from "styled-components";
 const Profile = () => {
   return (
     <AppLayout>
-      <Toast />
       <StyledProfile>
         <ProfileUI />
       </StyledProfile>

@@ -7,6 +7,8 @@ import Starter from "../pages/starter";
 import Login from "../pages/login";
 import Signup from "../pages/signup";
 import Profile from "../pages/profile";
+import { AuthProvider } from "context";
+import Employee from "pages/employee";
 
 const AppRoutes: React.FC = () => {
   const routes = [
@@ -23,12 +25,29 @@ const AppRoutes: React.FC = () => {
     // Doing it for scalability- not applicable now
     {
       path: "/",
-      element: <ProtectedRoute element={<Starter />} />,
+      element: (
+        <AuthProvider>
+          <ProtectedRoute element={<Starter />} />
+        </AuthProvider>
+      ),
       caseSensitive: true,
     },
     {
       path: "/profile",
-      element: <ProtectedRoute element={<Profile />} />,
+      element: (
+        <AuthProvider>
+          <ProtectedRoute element={<Profile />} />
+        </AuthProvider>
+      ),
+      caseSensitive: true,
+    },
+    {
+      path: "/employees",
+      element: (
+        <AuthProvider>
+          <ProtectedRoute element={<Employee />} />
+        </AuthProvider>
+      ),
       caseSensitive: true,
     },
 

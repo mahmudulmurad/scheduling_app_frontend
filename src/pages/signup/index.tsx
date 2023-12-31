@@ -24,8 +24,8 @@ const Signup: React.FC = () => {
       const response = await axios.post(signup_url, values);
 
       if (response.status === 201) {
-        navigate("/auth/login");
         toast.success(response.data.msg);
+        navigate("/auth/login");
       }
     } catch (error) {
       toast.error("Signup unsuccessful");

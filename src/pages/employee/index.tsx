@@ -1,7 +1,7 @@
 import AppLayout from "layout";
 
-const Starter = () => {
+const Employee = () => {
   return <AppLayout>hello</AppLayout>;
 };
 
-export default Starter;
+export default Employee;
