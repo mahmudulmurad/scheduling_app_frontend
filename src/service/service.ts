@@ -10,7 +10,7 @@ interface ApiResponse<T> {
 }
 
 // Define a function for making API requests
-export const makeApiRequest = async <T>(
+const makeApiRequest = async <T>(
   method: string,
   url: string,
   config?: AxiosRequestConfig
@@ -47,3 +47,42 @@ export const makeApiRequest = async <T>(
     throw error;
   }
 };
+
+// Define functions for different HTTP methods
+
+export const postRequest = async <T>(
+  url: string,
+  data: any,
+  config?: AxiosRequestConfig
+): Promise<ApiResponse<T>> => {
+  return await makeApiRequest<T>("post", url, { data, ...config });
+};
+
+export const patchRequest = async <T>(
+  url: string,
+  data: any,
+  config?: AxiosRequestConfig
+): Promise<ApiResponse<T>> => {
+  return await makeApiRequest<T>("patch", url, { data, ...config });
+};
+
+export const getRequest = async <T>(
+  url: string,
+  config?: AxiosRequestConfig
+): Promise<ApiResponse<T>> => {
+  return await makeApiRequest<T>("get", url, config);
+};
+
+export const deleteRequest = async <T>(
+  url: string,
+  params?: any,
+  config?: AxiosRequestConfig
+): Promise<ApiResponse<T>> => {
+  return await makeApiRequest<T>("delete", url, { params, ...config });
+};
+
+export const dataFormatter = (data: Record<string, any>[]) =>
+  data?.map((item, index) => ({
+    ...item,
+    key: index.toString(),
+  }));

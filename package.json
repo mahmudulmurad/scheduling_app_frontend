@@ -13,6 +13,7 @@
     "@types/react-toastify": "^4.1.0",
     "antd": "^5.8.6",
     "axios": "^1.6.3",
+    "moment": "^2.30.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.16.0",

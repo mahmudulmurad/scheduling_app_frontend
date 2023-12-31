@@ -1,17 +1,18 @@
 import AppLayout from "layout";
-import ProfileUI from "ui/profile";
 import styled from "styled-components";
-const Profile = () => {
+import EmployeeList from "ui/employee";
+
+const Employee = () => {
   return (
     <AppLayout>
       <StyledProfile>
-        <ProfileUI />
+        <EmployeeList />
       </StyledProfile>
     </AppLayout>
   );
 };
 
-export default Profile;
+export default Employee;
 
 const StyledProfile = styled("div")`
   width: calc(100% - 240px);

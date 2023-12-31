@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Descriptions, Button, Modal, Form, Input, Select } from "antd";
 import { User, useAuth } from "context";
-import { makeApiRequest } from "service";
+import { patchRequest } from "service";
 import { profile_update } from "api";
 
 const { Option } = Select;
@@ -19,14 +19,8 @@ const ProfileUI = () => {
   };
 
   const onFinish = async (values: any) => {
-    const response = await makeApiRequest<User>(
-      "patch",
-      profile_update(user._id),
-      values
-    );
+    const response = await patchRequest<User>(profile_update(user._id), values);
     setUser(response.payload);
-    console.log(response);
-
     setIsModalVisible(false);
   };
 

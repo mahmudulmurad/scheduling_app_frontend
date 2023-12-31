@@ -1,17 +1,18 @@
 import AppLayout from "layout";
-import ProfileUI from "ui/profile";
 import styled from "styled-components";
-const Profile = () => {
+import ShiftComponent from "ui/shift";
+
+const Shift = () => {
   return (
     <AppLayout>
       <StyledProfile>
-        <ProfileUI />
+        <ShiftComponent />
       </StyledProfile>
     </AppLayout>
   );
 };
 
-export default Profile;
+export default Shift;
 
 const StyledProfile = styled("div")`
   width: calc(100% - 240px);
