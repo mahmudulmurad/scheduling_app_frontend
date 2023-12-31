@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig } from "axios";
+import { User } from "context";
 import { toast } from "react-toastify";
 
 // Define an interface for the API response
@@ -86,3 +87,21 @@ export const dataFormatter = (data: Record<string, any>[]) =>
     ...item,
     key: index.toString(),
   }));
+
+export interface IShift {
+  _id: string;
+  name: string;
+  startDate: string;
+  endDate: string;
+  date: string;
+  assignedEmployees?: User[];
+}
+
+export const defaultShift: IShift = {
+  _id: "",
+  date: "",
+  endDate: "",
+  name: "",
+  startDate: "",
+  assignedEmployees: [],
+};

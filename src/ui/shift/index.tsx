@@ -20,7 +20,6 @@ import {
   postRequest,
 } from "service";
 import { toast } from "react-toastify";
-import { useAuth } from "context";
 
 const { Column } = Table;
 
@@ -33,7 +32,6 @@ interface IShift {
 }
 
 const ShiftComponent = () => {
-  const { user } = useAuth();
   const [shifts, setShifts] = useState<IShift[]>([]);
   const [visible, setVisible] = useState(false);
   const [form] = Form.useForm();

@@ -23,10 +23,15 @@ const Sidebar = () => {
             <StyledMenuItem key="3" icon={<UserAddOutlined />}>
               <StyledLink to="/employees">Employee List</StyledLink>
             </StyledMenuItem>
-            <StyledMenuItem key="4" icon={<TeamOutlined />}>
-              <StyledLink to="/shift">Shift</StyledLink>
+            <StyledMenuItem key="4" icon={<UserAddOutlined />}>
+              <StyledLink to="/employee-management">
+                Employee Tag/Untag
+              </StyledLink>
             </StyledMenuItem>
             <StyledMenuItem key="5" icon={<TeamOutlined />}>
+              <StyledLink to="/shift">Shift</StyledLink>
+            </StyledMenuItem>
+            <StyledMenuItem key="6" icon={<TeamOutlined />}>
               <StyledLink to="/schedule">Schedule</StyledLink>
             </StyledMenuItem>
           </>
@@ -57,7 +62,7 @@ const Sidebar = () => {
               <StyledLink to="/">Home</StyledLink>
             </StyledMenuItem>
             <StyledMenuItem key="2" icon={<TeamOutlined />}>
-              <StyledLink to="/schedule">Schedule</StyledLink>
+              <StyledLink to="/my-schedule">Schedule</StyledLink>
             </StyledMenuItem>
           </>
         );

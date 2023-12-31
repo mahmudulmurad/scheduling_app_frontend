@@ -10,6 +10,10 @@ import Profile from "../pages/profile";
 import { AuthProvider } from "context";
 import Employee from "pages/employee";
 import Shift from "pages/shift";
+import RoleChange from "pages/roleChange";
+import EmployeeManagement from "pages/employeeManagement";
+import Schedule from "pages/schedule";
+import MySchedule from "pages/mySchedule";
 
 const AppRoutes: React.FC = () => {
   const routes = [
@@ -56,6 +60,42 @@ const AppRoutes: React.FC = () => {
       element: (
         <AuthProvider>
           <ProtectedRoute element={<Shift />} />
+        </AuthProvider>
+      ),
+      caseSensitive: true,
+    },
+    {
+      path: "/role-change",
+      element: (
+        <AuthProvider>
+          <ProtectedRoute element={<RoleChange />} />
+        </AuthProvider>
+      ),
+      caseSensitive: true,
+    },
+    {
+      path: "/employee-management",
+      element: (
+        <AuthProvider>
+          <ProtectedRoute element={<EmployeeManagement />} />
+        </AuthProvider>
+      ),
+      caseSensitive: true,
+    },
+    {
+      path: "/schedule",
+      element: (
+        <AuthProvider>
+          <ProtectedRoute element={<Schedule />} />
+        </AuthProvider>
+      ),
+      caseSensitive: true,
+    },
+    {
+      path: "/my-schedule",
+      element: (
+        <AuthProvider>
+          <ProtectedRoute element={<MySchedule />} />
         </AuthProvider>
       ),
       caseSensitive: true,
