@@ -1,12 +1,12 @@
 import AppLayout from "layout";
 import styled from "styled-components";
-import EmployeeList from "ui/employee";
+import EmployeeUi from "ui/employee";
 
 const Employee = () => {
   return (
     <AppLayout>
       <StyledProfile>
-        <EmployeeList />
+        <EmployeeUi />
       </StyledProfile>
     </AppLayout>
   );

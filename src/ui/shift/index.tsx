@@ -31,7 +31,7 @@ interface IShift {
   date: string;
 }
 
-const ShiftComponent = () => {
+const ShiftUi = () => {
   const [shifts, setShifts] = useState<IShift[]>([]);
   const [visible, setVisible] = useState(false);
   const [form] = Form.useForm();
@@ -194,4 +194,4 @@ const ShiftComponent = () => {
   );
 };
 
-export default ShiftComponent;
+export default ShiftUi;

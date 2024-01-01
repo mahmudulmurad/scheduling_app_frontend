@@ -1,12 +1,12 @@
 import AppLayout from "layout";
 import styled from "styled-components";
-import ShiftComponent from "ui/shift";
+import ShiftUi from "ui/shift";
 
 const Shift = () => {
   return (
     <AppLayout>
       <StyledProfile>
-        <ShiftComponent />
+        <ShiftUi />
       </StyledProfile>
     </AppLayout>
   );
