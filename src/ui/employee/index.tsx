@@ -12,7 +12,7 @@ import EditModal from "./edit";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import { toast } from "react-toastify";
 
-const EmployeeList = () => {
+const EmployeeUi = () => {
   const { user, refetchProfile } = useAuth();
   const [employeeList, setEmployeeList] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
@@ -139,4 +139,4 @@ const EmployeeList = () => {
   );
 };
 
-export default EmployeeList;
+export default EmployeeUi;

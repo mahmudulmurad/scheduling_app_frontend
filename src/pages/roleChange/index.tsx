@@ -1,11 +1,11 @@
 import AppLayout from "layout";
 import styled from "styled-components";
-import EmployeeListForRoleChange from "ui/roleChange";
+import RoleChangeUi from "ui/roleChange";
 const RoleChange = () => {
   return (
     <AppLayout>
       <StyledProfile>
-        <EmployeeListForRoleChange />
+        <RoleChangeUi />
       </StyledProfile>
     </AppLayout>
   );

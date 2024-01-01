@@ -27,7 +27,6 @@ const AppRoutes: React.FC = () => {
       element: <PublicRoutes element={<Signup />} />,
     },
     // Protected routes
-    // Doing it for scalability- not applicable now
     {
       path: "/",
       element: (

@@ -1,7 +1,7 @@
 import AppLayout from "layout";
 
 const Starter = () => {
-  return <AppLayout>hello</AppLayout>;
+  return <AppLayout>Simple Dashboard</AppLayout>;
 };
 
 export default Starter;

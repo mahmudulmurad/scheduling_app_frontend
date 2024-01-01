@@ -7,7 +7,7 @@ import EditModal from "./edit";
 import { EditOutlined } from "@ant-design/icons";
 import { toast } from "react-toastify";
 
-const EmployeeListForRoleChange = () => {
+const RoleChangeUi = () => {
   const { user } = useAuth();
   const [employeeList, setEmployeeList] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
@@ -118,4 +118,4 @@ const EmployeeListForRoleChange = () => {
   );
 };
 
-export default EmployeeListForRoleChange;
+export default RoleChangeUi;
