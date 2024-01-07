@@ -19,9 +19,11 @@ type FieldType = {
 const Signup: React.FC = () => {
   const navigate = useNavigate();
 
-  const onFinish = async (values: FieldType) => {
+  const onFinish = async (values: unknown) => {
     try {
-      const response = await axios.post(signup_url, values);
+      const typedValues = values as FieldType;
+
+      const response = await axios.post(signup_url, typedValues);
 
       if (response.status === 201) {
         toast.success(response.data.msg);
